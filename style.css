@@ -230,4 +230,8 @@ input[type="number"] {
   #lower-control {
     transform: translateY(84vh);
   }
+
+  #test {
+    position: absolute;
+  }
 }
