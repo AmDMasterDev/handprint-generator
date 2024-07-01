@@ -224,3 +224,15 @@ function applyShadowToBaseImage(baseInputId, shadowCanvasId) {
     alert("Please upload the base image.");
   }
 }
+
+function answer(response) {
+  if (response == "Yes") {
+    document.getElementById("popup").style.display = "none";
+  } else {
+    const link = document.createElement("a");
+    link.href =
+      "intent:https://amdmasterdev.github.io/handprint-generator/#Intent;end";
+    link.target = "_blank";
+    link.click();
+  }
+}
