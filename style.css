@@ -143,8 +143,7 @@ input[type="file"] {
 label,
 button {
   padding: 8px 12px;
-  /* margin: 10px; */
-  font-size: 14px;
+  font-size: 12px;
   border: none;
   background-color: #ff7b7b;
   color: white;
@@ -161,7 +160,7 @@ button:hover {
 input[type="number"] {
   width: 60px;
   padding: 5px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 @media (max-width: 767px) {
@@ -197,10 +196,10 @@ input[type="number"] {
     width: 95%;
   }
   #select-image-1 {
-    font-size: 14px;
+    font-size: 12px;
   }
   button {
-    font-size: 14px;
+    font-size: 12px;
     padding: 6px 10px;
   }
 
@@ -215,15 +214,20 @@ input[type="number"] {
     flex-direction: column;
     gap: 10px;
   }
+
   #control-buttons {
     display: flex;
     flex-direction: row;
     position: relative;
-    font-size: 24px;
+    /* font-size: 24px; */
     transform: translateY(26vh);
     z-index: 10;
   }
+
+  #control-buttons > div > button {
+    font-size: 14px;
+  }
   #lower-control {
-    transform: translateY(85vh);
+    transform: translateY(84vh);
   }
 }
