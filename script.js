@@ -119,7 +119,7 @@ function rotateImage(direction) {
 function saveAsPng() {
   html2canvas(document.querySelector("#image-container")).then((canvas) => {
     const link = document.createElement("a");
-    link.download = "image-container.png";
+    link.download = "our-handprint.png";
     link.href = canvas.toDataURL();
     link.click();
   });
@@ -216,7 +216,7 @@ function applyShadowToBaseImage(baseInputId, shadowCanvasId) {
       // Apply shadow properties
       ctx.drawImage(baseImage, 0, 0, baseImage.width, baseImage.height);
       ctx.shadowColor = "rgba(0,0,0,0.3)";
-      ctx.shadowBlur = 10;
+      ctx.shadowBlur = 25;
       ctx.drawImage(baseImage, 0, 0, baseImage.width, baseImage.height);
     };
     baseImage.src = URL.createObjectURL(baseImageInput.files[0]);
