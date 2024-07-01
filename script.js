@@ -230,7 +230,7 @@ function answer(response) {
     document.getElementById("popup").style.display = "none";
     setTimeout(function () {
       // Hide the address bar!
-      window.scrollTo(0, 1);
+      window.scrollTo(0, 100);
     }, 0);
   } else {
     const link = document.createElement("a");

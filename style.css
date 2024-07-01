@@ -1,6 +1,6 @@
 body,
 html {
-  height: 100vh;
+  height: 100dvh;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -23,8 +23,8 @@ canvas {
 
 #image-container {
   position: relative;
-  width: 60vh; /* Adjusting width according to the height to maintain 16:9 ratio */
-  height: 95vh;
+  width: 60dvh; /* Adjusting width according to the height to maintain 16:9 ratio */
+  height: 95dvh;
   border: 1px solid #000;
   overflow: hidden;
   background-size: cover;
@@ -224,7 +224,7 @@ input[type="number"] {
     flex-direction: row;
     position: relative;
     /* font-size: 24px; */
-    transform: translateY(26vh);
+    transform: translateY(26dvh);
     z-index: 10;
   }
 
@@ -232,7 +232,7 @@ input[type="number"] {
     font-size: 14px;
   }
   #lower-control {
-    transform: translateY(84vh);
+    transform: translateY(84dvh);
   }
 
   #test {
