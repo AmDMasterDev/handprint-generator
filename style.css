@@ -1,0 +1,229 @@
+body,
+html {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 0 20px;
+  gap: 20px;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--canvas-width);
+}
+
+#image-container {
+  position: relative;
+  width: 60vh; /* Adjusting width according to the height to maintain 16:9 ratio */
+  height: 95vh;
+  border: 1px solid #000;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+#image-select-buttons {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+#controls-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.stacked-canvases {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  height: auto;
+}
+
+.uploaded-image {
+  position: absolute;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.controls {
+  text-align: center;
+}
+
+.controls button,
+.controls input {
+  margin: 0px;
+}
+
+input[type="file"] {
+  color: rgba(0, 0, 0, 0);
+}
+
+.controls > * {
+  margin: 5px 0;
+}
+
+.active-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.image-set {
+  display: flex;
+  align-items: start;
+  justify-content: space-around;
+  gap: 8px;
+}
+
+.image-set > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.controls input[type="file"] {
+  display: none;
+}
+
+/* /////////////////////////////////////////////////// */
+
+.controls-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.blur {
+  height: 100%;
+  backdrop-filter: blur(0.7px);
+}
+
+#image-select-buttons,
+.movement-controls,
+.rotation-controls,
+.input-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+
+#image-set {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label,
+button {
+  padding: 8px 12px;
+  /* margin: 10px; */
+  font-size: 14px;
+  border: none;
+  background-color: #ff7b7b;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+label:hover,
+button:hover {
+  background-color: #ff9a9a;
+}
+
+input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+@media (max-width: 767px) {
+  /* Mobile Styles */
+  body {
+    padding: 0;
+    background-image: url("images/pastel.jpg");
+  }
+  #controls-container {
+    position: absolute;
+    z-index: 2;
+  }
+  #image-container {
+    width: 95vw;
+    background-color: white;
+  }
+  .controls button {
+    margin: 0;
+  }
+
+  .image-set {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-around;
+    width: 90vw;
+    gap: 16px;
+  }
+  .image-set > div {
+    display: flex;
+  }
+  .controls-container {
+    width: 95%;
+  }
+  #select-image-1 {
+    font-size: 14px;
+  }
+  button {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  #image-set,
+  .controls {
+    position: absolute;
+    top: 5%;
+  }
+
+  #image-set {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  #control-buttons {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    font-size: 24px;
+    transform: translateY(26vh);
+    z-index: 10;
+  }
+  #lower-control {
+    transform: translateY(85vh);
+  }
+}

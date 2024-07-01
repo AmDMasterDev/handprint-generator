@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Handprint Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="image-container"><div class="blur"></div></div>
+    <div id="controls-container">
+      <div class="controls">
+        <div id="image-set">
+          <div class="image-set">
+            <div>
+              <label id="baseImage1Label" for="baseImage1"
+                >Upload His Hand</label
+              >
+              <input type="file" id="baseImage1" accept="image/*" />
+            </div>
+            <div>
+              <label id="maskImage1Label" for="maskImage1"
+                >Upload Watercolor Image (Optional)</label
+              >
+              <input type="file" id="maskImage1" accept="image/*" />
+            </div>
+            <button
+              onclick="applyMask('baseImage1', 'maskImage1', 'canvas1'); applyShadowToBaseImage('baseImage1', 'shadowCanvas1');"
+            >
+              Display Hand
+            </button>
+          </div>
+          <div class="image-set">
+            <div>
+              <label id="baseImage2Label" for="baseImage2"
+                >Upload Her Hand</label
+              >
+              <input type="file" id="baseImage2" accept="image/*" />
+            </div>
+            <div>
+              <label id="maskImage2Label" for="maskImage2"
+                >Upload Watercolor Image (Optional)</label
+              >
+              <input type="file" id="maskImage2" accept="image/*" />
+            </div>
+            <button
+              onclick="applyMask('baseImage2', 'maskImage2', 'canvas2'); applyShadowToBaseImage('baseImage2', 'shadowCanvas2');"
+            >
+              Display Hand
+            </button>
+          </div>
+        </div>
+        <div id="lower-control" class="image-set">
+          <div>
+            <label for="backgroundImage">Background Image</label>
+            <input type="file" id="backgroundImage" accept="image/*" />
+          </div>
+          <button id="showControls" onclick="toggleControls()">
+            Show/Hide Controls
+          </button>
+          <button onclick="saveAsPng()">Download Image</button>
+        </div>
+      </div>
+
+      <div class="controls" id="control-buttons" style="display: none">
+        <div id="image-select-buttons">
+          <button
+            id="select-image-1"
+            onclick="selectImage(1)"
+            style="display: none"
+          >
+            Select His Hand
+          </button>
+          <button
+            id="select-image-2"
+            onclick="selectImage(2)"
+            style="display: none"
+          >
+            Select Her Hand
+          </button>
+        </div>
+
+        <div>
+          <button onclick="rotateImage('clockwise')">Rotate ↻</button>
+          <button onclick="moveImage('up')">🢁</button>
+          <button onclick="moveImage('down')">🢃</button>
+          <button onclick="moveImage('left')">🢀</button>
+          <button onclick="moveImage('right')">🢂</button>
+          <button onclick="rotateImage('anticlockwise')">Rotate ↺</button>
+        </div>
+        <div>
+          <label for="step-value">Step:</label>
+          <input type="number" id="step-value" value="2" min="1" max="10" />
+          <label for="hand-scale">Zoom:</label>
+          <input type="number" id="hand-scale" value="75" min="1" />
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
