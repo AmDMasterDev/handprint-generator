@@ -174,7 +174,7 @@ function applyMask(baseInputId, maskInputId, canvasId) {
       };
       if (!maskImageInput.files.length) {
         const randomNumber = Math.floor(Math.random() * 24) + 1;
-        maskImage.src = "/images/watercolors/" + randomNumber + ".jpg";
+        maskImage.src = "images/watercolors/" + randomNumber + ".jpg";
       } else {
         maskImage.src = URL.createObjectURL(maskImageInput.files[0]);
         labelButton.style.backgroundColor = "#4caf50";
