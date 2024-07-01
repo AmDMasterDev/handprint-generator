@@ -228,6 +228,10 @@ function applyShadowToBaseImage(baseInputId, shadowCanvasId) {
 function answer(response) {
   if (response == "Yes") {
     document.getElementById("popup").style.display = "none";
+    setTimeout(function () {
+      // Hide the address bar!
+      window.scrollTo(0, 1);
+    }, 0);
   } else {
     const link = document.createElement("a");
     link.href =
