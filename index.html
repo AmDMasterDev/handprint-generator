@@ -2,114 +2,148 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale = 1.0, 
-maximum-scale=1.0, user-scalable=no"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/favicons/apple-touch-icon.png"
     />
-    <title>Handprint Generator</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="images/favicons/site.webmanifest" />
+    <title>Surprise Them | Wallpapers</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+      .header {
+        background-color: #000000;
+        /* font-size: 22px; */
+        padding: 4px 0;
+        color: #ffffff;
+        text-align: center;
+      }
+      .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: calc(100dvh - 60px);
+        text-align: center;
+      }
+      .title {
+        font-size: 32px;
+        margin-bottom: 30px;
+        color: #ffffff;
+        text-shadow: 0 0 8px #ff5050b8;
+        padding: 0 20px;
+        margin: 10px;
+      }
+      #typing-text {
+        font-size: 24px;
+        height: 30px;
+        margin-bottom: 20px;
+        color: white;
+        text-shadow: 0 0 10px #000;
+      }
+      .social-links a {
+        margin: 0 10px;
+        padding: 10px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #ffffff;
+        background-color: #ff5050cf;
+        text-shadow: 0 0 10px #000;
+        font-size: 20px;
+      }
+      .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+    </style>
   </head>
   <body>
-    <div id="image-container"><div class="blur"></div></div>
-
-    <div id="popup" class="popup">
-      <div class="popup-content">
-        <p>Using Chrome Browser? Press No To Open In Chrome</p>
-        <button class="btn" onclick="answer('Yes')">Yes</button>
-        <button class="btn" onclick="answer('No')">No</button>
+    <header class="header">
+      <h3>Surprise Them With Wallpapers And Love!</h3>
+    </header>
+    <div class="container">
+      <video autoplay loop muted class="video-background">
+        <source src="videos/background.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <h2 class="title">"Far Away But Our Love Bridges The Gap"</h2>
+      <div id="typing-text"></div>
+      <div class="social-links">
+        <a href="https://www.instagram.com/amos.dsouza/" target="_blank"
+          >Check Out My Instagram</a
+        >
+        <!-- Add more social media links as needed -->
       </div>
     </div>
-    <div id="controls-container">
-      <div class="controls">
-        <div id="image-set">
-          <div class="image-set">
-            <div>
-              <label id="baseImage1Label" for="baseImage1"
-                >Upload His Hand</label
-              >
-              <input type="file" id="baseImage1" accept="image/*" />
-            </div>
-            <div>
-              <label id="maskImage1Label" for="maskImage1"
-                >Upload Watercolor Image (Optional)</label
-              >
-              <input type="file" id="maskImage1" accept="image/*" />
-            </div>
-            <button
-              onclick="applyMask('baseImage1', 'maskImage1', 'canvas1'); applyShadowToBaseImage('baseImage1', 'shadowCanvas1');"
-            >
-              Display Hand
-            </button>
-          </div>
-          <div class="image-set">
-            <div>
-              <label id="baseImage2Label" for="baseImage2"
-                >Upload Her Hand</label
-              >
-              <input type="file" id="baseImage2" accept="image/*" />
-            </div>
-            <div>
-              <label id="maskImage2Label" for="maskImage2"
-                >Upload Watercolor Image (Optional)</label
-              >
-              <input type="file" id="maskImage2" accept="image/*" />
-            </div>
-            <button
-              onclick="applyMask('baseImage2', 'maskImage2', 'canvas2'); applyShadowToBaseImage('baseImage2', 'shadowCanvas2');"
-            >
-              Display Hand
-            </button>
-          </div>
-        </div>
-        <div id="lower-control" class="image-set">
-          <div>
-            <label for="backgroundImage">Background Image</label>
-            <input type="file" id="backgroundImage" accept="image/*" />
-          </div>
-          <button id="showControls" onclick="toggleControls()">
-            Show/Hide Controls
-          </button>
-          <button onclick="saveAsPng()">Download Image</button>
-        </div>
-      </div>
 
-      <div class="controls" id="control-buttons" style="display: none">
-        <div id="image-select-buttons">
-          <button
-            id="select-image-1"
-            onclick="selectImage(1)"
-            style="display: none"
-          >
-            Select His Hand
-          </button>
-          <button
-            id="select-image-2"
-            onclick="selectImage(2)"
-            style="display: none"
-          >
-            Select Her Hand
-          </button>
-        </div>
+    <script>
+      const phrases = [
+        "Coming Soon...",
+        "Made With Love For Y'all",
+        "Launching Soon...",
+      ];
+      let currentPhraseIndex = 0;
+      let currentCharIndex = 0;
+      let isDeleting = false;
+      const typingSpeed = 100;
+      const deleteSpeed = 50;
+      const pauseBetweenPhrases = 1000;
 
-        <div>
-          <button onclick="rotateImage('clockwise')">Rotate ↻</button>
-          <button onclick="moveImage('up')">⬆️</button>
-          <button onclick="moveImage('down')">⬇️</button>
-          <button onclick="moveImage('left')">⬅️</button>
-          <button onclick="moveImage('right')">➡️</button>
-          <button onclick="rotateImage('anticlockwise')">Rotate ↺</button>
-        </div>
-        <div>
-          <label for="step-value">Step:</label>
-          <input type="number" id="step-value" value="2" min="1" max="10" />
-          <label for="hand-scale">Zoom:</label>
-          <input type="number" id="hand-scale" value="75" min="1" />
-        </div>
-      </div>
-    </div>
-    <script src="script.js"></script>
+      function typeText() {
+        const currentPhrase = phrases[currentPhraseIndex];
+        const typingTextElement = document.getElementById("typing-text");
+
+        if (isDeleting) {
+          typingTextElement.textContent = currentPhrase.substring(
+            0,
+            currentCharIndex - 1
+          );
+          currentCharIndex--;
+        } else {
+          typingTextElement.textContent = currentPhrase.substring(
+            0,
+            currentCharIndex + 1
+          );
+          currentCharIndex++;
+        }
+
+        if (!isDeleting && currentCharIndex === currentPhrase.length) {
+          isDeleting = true;
+          setTimeout(typeText, pauseBetweenPhrases);
+        } else if (isDeleting && currentCharIndex === 0) {
+          isDeleting = false;
+          currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+          setTimeout(typeText, typingSpeed);
+        } else {
+          setTimeout(typeText, isDeleting ? deleteSpeed : typingSpeed);
+        }
+      }
+
+      typeText();
+    </script>
   </body>
 </html>
